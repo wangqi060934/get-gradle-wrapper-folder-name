@@ -1,9 +1,14 @@
 # get-gradle-wrapper-folder-name
 
-> A Vue.js project
+> Get the download path of gradle-version-all.zip
+
+## How to use
+[Online](https://wangqi060934.github.io/get-gradle-wrapper-folder-name/)
+
+![1](image/1.jpg)
+![2](image/2.jpg)
 
 ## Build Setup
-
 ``` bash
 # install dependencies
 npm install
@@ -18,4 +23,5 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Lisense
+[See](https://github.com/wangqi060934/get-gradle-wrapper-folder-name/blob/master/LICENSE)
