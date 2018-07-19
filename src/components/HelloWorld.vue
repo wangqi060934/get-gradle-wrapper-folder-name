@@ -4,9 +4,10 @@
         <li>Gradle download page: <a href="https://gradle.org/releases/" target="_blank">https://gradle.org/releases/</a></li>
         <li>DistributionUrl set in in gradle-wrapper.properties: <b>https\://services.gradle.org/distributions/gradle-<u>version</u>-all.zip</b></li>
         <li>Default download path: <b>~/.gradle/wrapper/dist/gradle-<u>version</u>-all/<font color='red'><u>folderName</u></font>/gradle-<u>version</u>-all.zip</b></li>
+        <li>Note:<i>If your "DistributionUrl" start with "http" not "https",please input the "DistributionUrl" into the box below.</i></li>
         <li>This page helps you get the folderName!</li>
       </ul>
-      <input placeholder="Input gradle version" v-model="version" class="form_input">
+      <input placeholder="Input the gradle version or DistributionUrl" v-model="version" class="form_input">
       <h1> {{ folderName }} </h1>
   </div>
 </template>
@@ -15,8 +16,9 @@
 import md5 from 'js-md5'
 import BigNumber from 'bignumber.js'
 const PREFIX = "https://services.gradle.org/distributions/gradle-";
-const SUFFIX = "-all.zip"
-const ESCAPE_START = "https\\://"
+const SUFFIX_ALL = "-all.zip"
+const ESCAPE_START_HTTPS = "https\\://"
+const ESCAPE_START_HTTP = "http\\://"
 
 export default {
   name: 'HelloWorld',
@@ -30,9 +32,16 @@ export default {
       let full = this.version.trim()
       if(full){
         if(full.indexOf("/") < 0){
-          full = PREFIX + full + SUFFIX
-        }else if(full.indexOf(ESCAPE_START) == 0){
-          full = "https://" + full.substr(ESCAPE_START.length)
+          if(full.indexOf("-all",full.length-"-all".length) > 0
+            || full.indexOf("-bin",full.length-"-bin".length) > 0){
+            full = PREFIX + full + ".zip"
+          }else{
+            full = PREFIX + full + SUFFIX_ALL
+          }
+        }else if(full.indexOf(ESCAPE_START_HTTP) == 0){
+          full = "http://" + full.substr(ESCAPE_START_HTTP.length)
+        }else if(full.indexOf(ESCAPE_START_HTTPS) == 0){
+          full = "https://" + full.substr(ESCAPE_START_HTTPS.length)
         }
         return new BigNumber(md5(full),16).toString(36).toLowerCase()
       }else{
