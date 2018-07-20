@@ -5,8 +5,13 @@
 ## How to use
 [Online](https://wangqi060934.github.io/get-gradle-wrapper-folder-name/)
 
-![1](image/1.jpg)
-![2](image/2.jpg)
+![use](image/1.jpg)
+![fact](image/2.jpg)
+
+## Reference
+> org.gradle.wrapper.PathAssembler#getMd5Hash
+
+![reference](image/3.jpg)
 
 ## Build Setup
 ``` bash
