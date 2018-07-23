@@ -13,6 +13,8 @@
 
 ![reference](image/3.jpg)
 
+**Note:the radix is 32 in old versions and is changed to 36 now.**
+
 ## Build Setup
 ``` bash
 # install dependencies
