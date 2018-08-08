@@ -5,15 +5,17 @@
 ## How to use
 [Online](https://wangqi060934.github.io/get-gradle-wrapper-folder-name/)
 
-![use](image/1.jpg)
-![fact](image/2.jpg)
+![use_1](image/1_1.jpg)
+![use_2](image/1_2.jpg)
+![fact_1](image/2_1.jpg)
+![fact_2](image/2_2.jpg)
 
 ## Reference
 > org.gradle.wrapper.PathAssembler#getMd5Hash
 
 ![reference](image/3.jpg)
 
-**Note:the radix is 32 in old versions and is changed to 36 now.**
+**Note:the radix has been changed from 32 to 36.**
 
 ## Build Setup
 ``` bash
